@@ -8,10 +8,9 @@ import iziToast from 'izitoast';
 // Додатковий імпорт стилів
 import 'izitoast/dist/css/iziToast.min.css';
 
-
 const dateTimePicker = document.querySelector('#datetime-picker');
 const startButton = document.querySelector('#start-button');
-const timerDisplay = document.querySelector(".timer");
+const timerDisplay = document.querySelector('.timer');
 startButton.disabled = true;
 let userSelectedDate;
 let countdownInterval;
@@ -33,13 +32,12 @@ const options = {
       userSelectedDate = selectedDate;
       startButton.disabled = false;
     }
-        clearInterval(countdownInterval);
+    clearInterval(countdownInterval);
     timerDisplay.textContent = '00:00:00';
   },
 };
 
- flatpickr(dateTimePicker, options);
-
+flatpickr(dateTimePicker, options);
 
 startButton.addEventListener('click', () => {
   if (!userSelectedDate) return;
@@ -57,7 +55,8 @@ startButton.addEventListener('click', () => {
       dateTimePicker.disabled = false;
       return;
     }
-  }
+  });
+});
 function convertMs(ms) {
   // Number of milliseconds per unit of time
   const second = 1000;
