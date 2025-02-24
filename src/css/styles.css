@@ -97,3 +97,34 @@ button {
   text-transform: capitalize;
 }
 /* #endregion */
+/* #region Timer */
+input:hover {
+  border: 1px solid #000;
+  color: #2e2f42;
+}
+input:active {
+  border: 1px solid #4e75ff;
+  color: #000;
+}
+input:disabled {
+  border: 1px solid #808080;
+  color: #808080;
+}
+button#start-button:hover {
+  background: #6c8cff;
+}
+button#start-button:disabled {
+  background: #cfcfcf;
+  color: #989898;
+}
+.input-wraper {
+}
+.timer {
+}
+.field {
+}
+.value {
+}
+.label {
+}
+/* #endregion */

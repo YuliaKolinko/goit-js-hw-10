@@ -22,12 +22,19 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     const selectedDate = selectedDates[0];
-    if (selectedDate <= new Date()) {
+    if (selectedDate <= Date.now()) {
       iziToast.error({
         title: 'Error',
         message: 'Please choose a date in the future',
+        position: 'topRight',
+        messageColor: '#fff',
+        backgroundColor: '#ef4040',
+        iconColor: '#FAFAFB',
+        titleColor: '#fff',
+        iconUrl: '../icon',
       });
       startButton.disabled = true;
+      return;
     } else {
       userSelectedDate = selectedDate;
       startButton.disabled = false;
