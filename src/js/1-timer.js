@@ -27,8 +27,8 @@ function startCount() {
 
   countdownInterval = setInterval(() => {
     const timeLeft = userSelectedDate - Date.now();
-    // const timeArray = convertMs(timeLeft);
-    // const { days, hours, minutes, seconds } = timeArray;
+    const timeArray = convertMs(timeLeft);
+    const { days, hours, minutes, seconds } = timeArray;
     // function writingTime({ days, hours, minutes, seconds }) {
     dataDays.textContent = String(days).padStart(2, '0');
     dataHours.textContent = String(hours).padStart(2, '0');
