@@ -24,27 +24,27 @@ startButton.addEventListener('click', startCount);
 function startCount() {
   startButton.disabled = true;
   dateTimePicker.disabled = true;
-}
 
-countdownInterval = setInterval(() => {
-  const timeLeft = userSelectedDate - Date.now();
-  // const timeArray = convertMs(timeLeft);
-  // const { days, hours, minutes, seconds } = timeArray;
-  // function writingTime({ days, hours, minutes, seconds }) {
-  dataDays.textContent = String(days).padStart(2, '0');
-  dataHours.textContent = String(hours).padStart(2, '0');
-  dataMinutes.textContent = String(minutes).padStart(2, '0');
-  dataSeconds.textContent = String(seconds).padStart(2, '0');
-  if (
-    timeLeft <= 0 ||
-    (days === 0 && hours === 0 && minutes === 0 && seconds === 0)
-  ) {
-    clearInterval(countdownInterval);
-    iziToast.success({ title: 'Done', message: 'Countdown finished!' });
-    dateTimePicker.disabled = false;
-    return;
-  }
-}, 1000);
+  countdownInterval = setInterval(() => {
+    const timeLeft = userSelectedDate - Date.now();
+    // const timeArray = convertMs(timeLeft);
+    // const { days, hours, minutes, seconds } = timeArray;
+    // function writingTime({ days, hours, minutes, seconds }) {
+    dataDays.textContent = String(days).padStart(2, '0');
+    dataHours.textContent = String(hours).padStart(2, '0');
+    dataMinutes.textContent = String(minutes).padStart(2, '0');
+    dataSeconds.textContent = String(seconds).padStart(2, '0');
+    if (
+      timeLeft <= 0 ||
+      (days === 0 && hours === 0 && minutes === 0 && seconds === 0)
+    ) {
+      clearInterval(countdownInterval);
+      iziToast.success({ title: 'Done', message: 'Countdown finished!' });
+      dateTimePicker.disabled = false;
+      return;
+    }
+  }, 1000);
+}
 // Налаштування опцій календаря
 const options = {
   enableTime: true,
