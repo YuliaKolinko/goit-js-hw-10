@@ -146,6 +146,10 @@ button#start-button {
   flex-direction: column;
   gap: 8px;
   margin-bottom: 16px;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  flex-wrap: wrap;
 }
 .delay-input {
   border: 1px solid #808080;
@@ -162,6 +166,21 @@ button#start-button {
 fieldset {
   width: 360px;
   margin-bottom: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.state-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.state-lable {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
 }
 .state-input {
   border-radius: 4px;
@@ -180,8 +199,61 @@ fieldset {
   width: 360px;
   height: 40px;
   background: #4e75ff;
+  align-items: center;
+  justify-self: center;
+  color: #fff;
 }
+
 .submit-button:hover {
   background: #6c8cff;
+}
+.label-radio {
+  margin-left: 48px;
+  justify-self: center;
+  gap: 8px;
+  align-items: center;
+}
+.input-radio,
+.state-input {
+  position: relative;
+  appearance: none;
+  border: 1px solid #757575;
+  border-radius: 14px;
+  outline: none;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  padding: 1px;
+  transition: border-color 300ms cubic-bezier(0.075, 0.82, 0.165, 1),
+    background-color 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.input-radio:after,
+.state-input::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: width 300ms cubic-bezier(0.075, 0.82, 0.165, 1),
+    height 300ms cubic-bezier(0.075, 0.82, 0.165, 1),
+    background-color 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.input-radio:hover,
+.state-input:hover {
+  border: 1px solid #000;
+}
+.input-radio:checked,
+.state-input:checked {
+  border-color: #4e75ff;
+}
+.input-radio:checked:after,
+.state-input:checked::after {
+  width: 12px;
+  height: 12px;
+  background-color: #4e75ff;
 }
 /* #endregion */
