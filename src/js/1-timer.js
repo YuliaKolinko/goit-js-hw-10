@@ -7,6 +7,7 @@ import 'flatpickr/dist/flatpickr.min.css';
 import iziToast from 'izitoast';
 // // Додатковий імпорт стилів
 import 'izitoast/dist/css/iziToast.min.css';
+import iconDagger from '../img/icon/Group.png';
 
 const dateTimePicker = document.querySelector('#datetime-picker');
 const startButton = document.querySelector('#start-button');
@@ -29,7 +30,7 @@ function startCount() {
     const timeLeft = userSelectedDate - Date.now();
     const timeArray = convertMs(timeLeft);
     const { days, hours, minutes, seconds } = timeArray;
-    // function writingTime({ days, hours, minutes, seconds }) {
+
     dataDays.textContent = String(days).padStart(2, '0');
     dataHours.textContent = String(hours).padStart(2, '0');
     dataMinutes.textContent = String(minutes).padStart(2, '0');
@@ -64,7 +65,7 @@ const options = {
         titleColor: '#fff',
         close: true,
         closeColor: '#fff',
-        iconUrl: '../img/icon/Group.png',
+        iconUrl: iconDagger,
       });
       startButton.disabled = true;
       return;
@@ -98,3 +99,4 @@ console.log(convertMs(140000)); // {days: 0, hours: 0, minutes: 2, seconds: 20}
 console.log(convertMs(24140000)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
 
 flatpickr('#datetime-picker', options);
+// function writingTime({ days, hours, minutes, seconds }) {

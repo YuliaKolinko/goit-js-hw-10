@@ -1,5 +1,9 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
+import iconDagger from '../img/icon/Group.png';
+import iconOk from '../img/icon/form icon/circle Ok.png';
+import iconCaution from '../img/icon/form icon/triangle Caution.png';
+import iconBell from '../img/icon/form icon/bell welcome.png';
 
 const form = document.querySelector('.form');
 form.setAttribute('novalidate', '');
@@ -13,7 +17,7 @@ const successMessage = {
   close: true,
   titleColor: '#fff',
   closeColor: '#fff',
-  iconUrl: '../img/icon/form icon/circle Ok.png',
+  iconUrl: iconOk,
 };
 
 const errorMessage = {
@@ -25,7 +29,7 @@ const errorMessage = {
   close: true,
   titleColor: '#fff',
   closeColor: '#fff',
-  iconUrl: '../img/icon/Group.png',
+  iconUrl: iconDagger,
 };
 
 const cautionMessage = {
@@ -38,7 +42,7 @@ const cautionMessage = {
   close: true,
   titleColor: '#fff',
   closeColor: '#fff',
-  iconUrl: '../img/icon/form icon/triangle Caution.png',
+  iconUrl: iconCaution,
 };
 
 const informingMessage = {
@@ -51,13 +55,13 @@ const informingMessage = {
   close: true,
   titleColor: '#fff',
   closeColor: '#fff',
-  iconUrl: '../img/icon/form icon/bell welcome.png',
+  iconUrl: iconBell,
 };
 
 // Відображення вітального повідомлення
 iziToast.show(informingMessage);
 
-form.addEventListener('submit', function promiseFunktion(event) {
+form.addEventListener('submit', function promiseFunction(event) {
   event.preventDefault();
 
   const delayInput = document.querySelector('input[name="delay"]');
