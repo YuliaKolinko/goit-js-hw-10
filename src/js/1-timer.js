@@ -28,6 +28,14 @@ function startCount() {
 
   countdownInterval = setInterval(() => {
     const timeLeft = userSelectedDate - Date.now();
+
+    if (timeLeft <= 0) {
+      clearInterval(countdownInterval);
+      iziToast.success({ title: 'Done', message: 'Countdown finished!' });
+      dateTimePicker.disabled = false;
+      return;
+    }
+
     const timeArray = convertMs(timeLeft);
     const { days, hours, minutes, seconds } = timeArray;
 
@@ -35,15 +43,6 @@ function startCount() {
     dataHours.textContent = String(hours).padStart(2, '0');
     dataMinutes.textContent = String(minutes).padStart(2, '0');
     dataSeconds.textContent = String(seconds).padStart(2, '0');
-    if (
-      timeLeft <= 0 ||
-      (days === 0 && hours === 0 && minutes === 0 && seconds === 0)
-    ) {
-      clearInterval(countdownInterval);
-      iziToast.success({ title: 'Done', message: 'Countdown finished!' });
-      dateTimePicker.disabled = false;
-      return;
-    }
   }, 1000);
 }
 // Налаштування опцій календаря

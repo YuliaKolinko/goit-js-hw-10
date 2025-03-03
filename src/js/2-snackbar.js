@@ -68,21 +68,21 @@ form.addEventListener('submit', function promiseFunction(event) {
   const getState = document.querySelector('input[name="state"]:checked');
 
   if (delayInput.value === '') {
-    console.log('Enter some number');
+    // console.log('Enter some number');
     iziToast.show(cautionMessage);
     event.currentTarget.reset();
     return;
   }
 
   if (Number(delayInput.value) <= 0) {
-    console.log('You must enter a valid value');
+    // console.log('You must enter a valid value');
     iziToast.show(cautionMessage);
     event.currentTarget.reset();
     return;
   }
 
   if (!getState) {
-    console.log('You forgot to choose a promise type');
+    // console.log('You forgot to choose a promise type');
     iziToast.show(cautionMessage);
     return;
   }
@@ -92,26 +92,28 @@ form.addEventListener('submit', function promiseFunction(event) {
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
       if (getState.value === 'fulfilled') {
-        resolve(`✅ Fulfilled promise in ${promiseDelay}ms`);
+        resolve(promiseDelay);
       } else {
-        reject(`❌ Rejected promise in ${promiseDelay}ms`);
+        reject(promiseDelay);
       }
     }, promiseDelay);
   });
 
   promise
-    .then(stateResult => {
-      console.log(stateResult);
+    .then(delay => {
+      const message = `✅ Fulfilled promise in ${delay}ms`;
+      console.log(message);
       iziToast.success({
         ...successMessage,
-        message: stateResult,
+        message: message,
       });
     })
-    .catch(stateResult => {
-      console.log(stateResult);
+    .catch(delay => {
+      const message = `❌ Rejected promise in ${delay}ms`;
+      console.log(message);
       iziToast.error({
         ...errorMessage,
-        message: stateResult,
+        message: message,
       });
     });
 
